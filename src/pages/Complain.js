@@ -20,8 +20,8 @@ const Complain = () => {
       },
     });
 
-    socket.emit('join');
-    socket.on('onlineUser', (user) => {
+    socket.emit('joinAdmin');
+    socket.on('onlineAdmin', (user) => {
       setOnlineUser(user);
     });
 
