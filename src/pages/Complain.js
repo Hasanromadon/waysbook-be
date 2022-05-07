@@ -5,6 +5,7 @@ import Layout from '../hoc/Layout';
 import { io } from 'socket.io-client';
 
 let socket;
+let token = localStorage.getItem('token');
 const Complain = () => {
   const title = 'Complain admin';
   document.title = 'DumbMerch | ' + title;
@@ -14,9 +15,9 @@ const Complain = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket = io('https://waysbookapp.herokuapp.com', {
+    socket = io('https://waysbookapp.herokuapp.com/', {
       auth: {
-        token: localStorage.getItem('token'),
+        token: token,
       },
     });
     socket.emit('join');

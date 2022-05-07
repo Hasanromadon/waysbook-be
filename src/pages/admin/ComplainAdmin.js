@@ -6,6 +6,7 @@ import { io } from 'socket.io-client';
 import LayoutAdmin from '../../hoc/LayoutAdmin';
 
 let socket;
+let token = localStorage.getItem('token');
 const ComplainAdmin = () => {
   const title = 'Complain admin';
   document.title = 'Waysbook | ' + title;
@@ -18,9 +19,9 @@ const ComplainAdmin = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket = io('https://waysbookapp.herokuapp.com', {
+    socket = io('https://waysbookapp.herokuapp.com/', {
       auth: {
-        token: localStorage.getItem('token'),
+        token: token || localStorage.getItem('token'),
       },
     });
 
