@@ -5,9 +5,8 @@ const Chat = ({ contact, loadMessages, messages, sendMessage, onlineUser }) => {
   const { user } = useSelector((state) => state.user);
   const [isOnline, setIsOnline] = useState(false);
 
-  const checkOnlineUser = onlineUser?.findIndex(
-    (user) => user?.id === contact?.id
-  );
+  const checkOnlineUser = () =>
+    onlineUser?.findIndex((user) => user?.id === contact?.id);
 
   useEffect(() => {
     const online = checkOnlineUser();
