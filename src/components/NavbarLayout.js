@@ -43,7 +43,11 @@ const NavbarLayout = ({ setModalShow, setModalRegisterShow }) => {
       width={60}
       height={60}
       roundedCircle
-      src={user?.profile?.image}
+      src={
+        user?.profile?.image
+          ? user?.profile?.image
+          : '/assets/icons/generic-avatar.png'
+      }
       alt=""
     />
   );

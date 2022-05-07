@@ -70,7 +70,11 @@ const Profile = () => {
                       width="100%"
                       height={202}
                       rounded
-                      src={user?.profile?.image}
+                      src={
+                        user?.profile?.image
+                          ? user?.profile?.image
+                          : '/assets/icons/generic-avatar.png'
+                      }
                       alt=""
                     />
                     <div className="d-grid mt-2">
