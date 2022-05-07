@@ -45,7 +45,7 @@ const Transaction = () => {
                   {transactions?.length > 0 ? (
                     transactions.map((item, index) => (
                       <tr key={item.id}>
-                        <td>1</td>
+                        <td>{index + 1}</td>
                         <td>{item.buyer.fullname}</td>
                         <td>
                           {item.order_detail
@@ -88,7 +88,7 @@ const Transaction = () => {
                     ))
                   ) : (
                     <tr>
-                      <td>No Data</td>
+                      <td colSpan={5}>No Data</td>
                     </tr>
                   )}
                 </tbody>
