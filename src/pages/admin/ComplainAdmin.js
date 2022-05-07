@@ -28,7 +28,7 @@ const ComplainAdmin = () => {
     socket.on('onlineUser', (user) => {
       setOnlineUser(user);
     });
-  }, []);
+  }, [onlineUser]);
 
   useEffect(() => {
     socket = io('https://waysbookapp.herokuapp.com', {

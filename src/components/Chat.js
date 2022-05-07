@@ -9,7 +9,8 @@ const Chat = ({ contact, loadMessages, messages, sendMessage, onlineUser }) => {
     onlineUser?.findIndex((online) => online?.id === contact?.id) > 0
       ? setIsOnline(true)
       : setIsOnline(false);
-    console.log(onlineUser);
+    console.log('chat online', onlineUser);
+    console.log('chat online', contact);
   }, [onlineUser]);
 
   return (
