@@ -18,7 +18,7 @@ const ComplainAdmin = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket = io('http://localhost:5000', {
+    socket = io('https://waysbookapp.herokuapp.com', {
       auth: {
         token: localStorage.getItem('token'),
       },
