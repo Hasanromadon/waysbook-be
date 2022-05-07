@@ -96,8 +96,6 @@ const ComplainAdmin = () => {
     }
   };
 
-  console.log('checkonline', onlineUser);
-
   return (
     <LayoutAdmin>
       <Container className="mt-3 mb-5">

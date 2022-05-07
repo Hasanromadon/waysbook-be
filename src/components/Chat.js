@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Form, Image, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 const Chat = ({ contact, loadMessages, messages, sendMessage, onlineUser }) => {
   const { user } = useSelector((state) => state.user);
+  const [isOnline, setIsOnline] = useState(false);
+
+  const checkOnlineUser = onlineUser?.findIndex(
+    (user) => user?.id === contact?.id
+  );
+
+  useEffect(() => {
+    const online = checkOnlineUser();
+    if (online > 0) {
+      setIsOnline(true);
+    } else {
+    }
+    setIsOnline(false);
+  }, [onlineUser]);
 
   return (
     <div>
@@ -19,7 +33,7 @@ const Chat = ({ contact, loadMessages, messages, sendMessage, onlineUser }) => {
           <div>
             <span className="d-block fw-bold">{contact?.fullname}</span>
             <small>
-              {onlineUser?.findIndex((user) => user?.id === contact?.id) > 0 ? (
+              {isOnline ? (
                 <>
                   <img src="/assets/icons/online.svg" alt="" /> Online
                 </>
