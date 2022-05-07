@@ -28,6 +28,10 @@ const ComplainAdmin = () => {
     socket.on('onlineUser', (user) => {
       setOnlineUser(user);
     });
+
+    return () => {
+      socket.disconnect();
+    };
   }, [onlineUser]);
 
   useEffect(() => {

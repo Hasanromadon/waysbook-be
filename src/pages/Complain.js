@@ -20,7 +20,7 @@ const Complain = () => {
       },
     });
 
-    socket.emit('join');
+    socket.emit('getOnlineUser');
     socket.on('onlineUser', (user) => {
       setOnlineUser(user);
     });
