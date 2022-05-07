@@ -6,7 +6,6 @@ import { io } from 'socket.io-client';
 import LayoutAdmin from '../../hoc/LayoutAdmin';
 
 let socket;
-let token = localStorage.getItem('token');
 const ComplainAdmin = () => {
   const title = 'Complain admin';
   document.title = 'Waysbook | ' + title;
@@ -19,15 +18,27 @@ const ComplainAdmin = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket = io('https://waysbookapp.herokuapp.com/', {
+    socket = io('http://localhost:5000', {
       auth: {
-        token: token || localStorage.getItem('token'),
+        token: localStorage.getItem('token'),
       },
     });
 
     socket.emit('join');
     socket.on('onlineUser', (user) => {
       setOnlineUser(user);
+    });
+
+    return () => {
+      socket.disconnect('tttttttttttttttttes');
+    };
+  }, []);
+
+  useEffect(() => {
+    socket = io('http://localhost:5000', {
+      auth: {
+        token: localStorage.getItem('token'),
+      },
     });
 
     socket.emit('load customer contacts');

@@ -30,7 +30,6 @@ const CarouselItem = ({ book }) => {
     const books = checkPaidBook();
     if (books) {
       setPaidBooks(books);
-      console.log('paid', books);
     }
   }, []);
 
