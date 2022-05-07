@@ -20,15 +20,15 @@ const Complain = () => {
       },
     });
 
-    socket.emit('joinAdmin');
-    socket.on('onlineAdmin', (user) => {
+    socket.emit('join');
+    socket.on('onlineUser', (user) => {
       setOnlineUser(user);
     });
 
     return () => {
       socket.disconnect('tttttttttttttttttes');
     };
-  }, []);
+  });
 
   useEffect(() => {
     socket = io('https://waysbookapp.herokuapp.com', {

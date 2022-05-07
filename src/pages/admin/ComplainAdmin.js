@@ -32,7 +32,7 @@ const ComplainAdmin = () => {
     return () => {
       socket.disconnect('tttttttttttttttttes');
     };
-  }, []);
+  });
 
   useEffect(() => {
     socket = io('https://waysbookapp.herokuapp.com', {
