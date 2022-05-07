@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Image, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 const Chat = ({ contact, loadMessages, messages, sendMessage, onlineUser }) => {
   const { user } = useSelector((state) => state.user);
   const [isOnline, setIsOnline] = useState(false);
 
-  const checkOnlineUser = () =>
-    onlineUser?.findIndex((user) => user?.id === contact?.id);
-
   useEffect(() => {
-    const online = checkOnlineUser();
-    if (online > 0) {
-      setIsOnline(true);
-    } else {
-    }
-    setIsOnline(false);
-  }, [onlineUser]);
+    onlineUser?.findIndex((online) => online?.id === contact?.id) > 0
+      ? setIsOnline(true)
+      : setIsOnline(false);
+  }, [contact, onlineUser]);
 
   return (
     <div>
