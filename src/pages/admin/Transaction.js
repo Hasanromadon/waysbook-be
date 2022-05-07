@@ -14,7 +14,6 @@ const Transaction = () => {
     try {
       const response = await API.get('/transactions');
       setTransactions(response.data.data);
-      console.log(transactions);
     } catch (err) {
       console.log(err);
     }
