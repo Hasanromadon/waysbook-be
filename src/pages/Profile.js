@@ -3,7 +3,10 @@ import { Row, Col, Container, Image } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import LinkWaysBook from '../components/LinkWaysBook';
 import PaidBookCard from '../components/PaidBookCard';
-import { transactionSelectors } from '../features/transactionSlice';
+import {
+  getTransactions,
+  transactionSelectors,
+} from '../features/transactionSlice';
 import { userProfile } from '../features/userSlice';
 import Layout from '../hoc/Layout';
 
@@ -17,6 +20,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userProfile());
+    dispatch(getTransactions());
   }, [dispatch]);
 
   return (
